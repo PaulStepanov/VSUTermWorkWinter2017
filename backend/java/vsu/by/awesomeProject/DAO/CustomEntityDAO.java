@@ -17,7 +17,7 @@ public class CustomEntityDAO {
     private EntityManager entityManager;
 
     public List<Entity> getAllEntities(){
-        Query query = entityManager.createQuery("SELECT * from entity_definition");
-        return query.getResultList();
+        Query query = entityManager.createQuery("SELECT e FROM entity_definition e");
+        return (List<Entity>)query.getResultList();
     }
 }

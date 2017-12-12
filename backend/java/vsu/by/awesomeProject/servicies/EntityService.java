@@ -3,6 +3,7 @@ package vsu.by.awesomeProject.servicies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import vsu.by.awesomeProject.DAO.CustomEntityDAO;
 import vsu.by.awesomeProject.DAO.EntityRepository;
 import vsu.by.awesomeProject.DAO.entities.Entity;
 import vsu.by.awesomeProject.controllers.JSONObjects.ChangeEntityNameRequest;
@@ -18,6 +19,9 @@ public class EntityService {
     @Autowired
     private EntityRepository entityRepository;
 
+    @Autowired
+    private CustomEntityDAO customEntityDAO;
+
     public ChangeEntityNameRequest changeEntityName(Integer id, String name){
         System.out.println("request DAO");
 
@@ -25,6 +29,6 @@ public class EntityService {
     }
 
     public List<Entity> getEntities(){
-        return null;
+        return customEntityDAO.getAllEntities();
     }
 }
