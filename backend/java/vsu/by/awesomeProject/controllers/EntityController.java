@@ -2,9 +2,12 @@ package vsu.by.awesomeProject.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import vsu.by.awesomeProject.DAO.entities.Entity;
 import vsu.by.awesomeProject.controllers.JSONObjects.ChangeEntityNameRequest;
 import vsu.by.awesomeProject.entities.EntityEntity;
 import vsu.by.awesomeProject.servicies.EntityService;
+
+import java.util.List;
 
 /**
  * Created by Андрей on 12.12.2017.
@@ -17,11 +20,9 @@ public class EntityController {
     private EntityService entityService;
 
     @GetMapping
-    public EntityEntity getEntities(){
+    public List<Entity> getEntities(){
         EntityEntity entityEntity = new EntityEntity();
-        entityEntity.setId(4);
-        entityEntity.setName("ok");
-        return entityEntity;
+        return entityService.getEntities();
     }
 
     @PostMapping("/changeEntityName")
