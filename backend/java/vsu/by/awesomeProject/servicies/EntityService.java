@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import vsu.by.awesomeProject.DAO.CustomEntityDAO;
 import vsu.by.awesomeProject.DAO.EntityRepository;
-import vsu.by.awesomeProject.DAO.entities.Entity;
+import vsu.by.awesomeProject.DAO.entities.EntityDefinition;
 import vsu.by.awesomeProject.controllers.JSONObjects.ChangeEntityNameRequest;
 
 import java.util.List;
@@ -28,7 +28,7 @@ public class EntityService {
         return null;
     }
 
-    public List<Entity> getEntities(){
+    public List<EntityDefinition> getEntities(){
         return customEntityDAO.getAllEntities();
     }
 }

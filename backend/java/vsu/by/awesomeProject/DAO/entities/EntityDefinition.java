@@ -8,13 +8,13 @@ import javax.persistence.Table;
  */
 @javax.persistence.Entity(name = "entity_definition")
 @Table(name = "entity_definition")
-public class Entity {
+public class EntityDefinition {
     @Id
     private Integer id;
 
     private String name;
 
-    public Entity() {
+    public EntityDefinition() {
     }
 
     public Integer getId() {

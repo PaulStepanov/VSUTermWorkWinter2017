@@ -2,7 +2,7 @@ package vsu.by.awesomeProject.DAO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import vsu.by.awesomeProject.DAO.entities.Entity;
+import vsu.by.awesomeProject.DAO.entities.EntityDefinition;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -16,8 +16,8 @@ public class CustomEntityDAO {
     @Autowired
     private EntityManager entityManager;
 
-    public List<Entity> getAllEntities(){
+    public List<EntityDefinition> getAllEntities(){
         Query query = entityManager.createQuery("SELECT e FROM entity_definition e");
-        return (List<Entity>)query.getResultList();
+        return (List<EntityDefinition>)query.getResultList();
     }
 }

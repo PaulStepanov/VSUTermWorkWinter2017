@@ -2,7 +2,7 @@ package vsu.by.awesomeProject.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import vsu.by.awesomeProject.DAO.entities.Entity;
+import vsu.by.awesomeProject.DAO.entities.EntityDefinition;
 import vsu.by.awesomeProject.controllers.JSONObjects.ChangeEntityNameRequest;
 import vsu.by.awesomeProject.entities.EntityEntity;
 import vsu.by.awesomeProject.servicies.EntityService;
@@ -20,7 +20,7 @@ public class EntityController {
     private EntityService entityService;
 
     @GetMapping
-    public List<Entity> getEntities(){
+    public List<EntityDefinition> getEntities(){
         EntityEntity entityEntity = new EntityEntity();
         return entityService.getEntities();
     }
