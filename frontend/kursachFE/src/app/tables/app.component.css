@@ -1,8 +1,29 @@
-header{
+.tables-container {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  flex-wrap: wrap;
 }
-header #edit_gear {
-  padding-top: 20px;
+
+.tables {
+  flex-grow: 1;
+
+}
+#table_header{
+  flex-basis: 70%;
+}
+#gearCl {
+  flex-basis: 10%;
+}
+
+#edit_gear {
+  padding: 23px 0 0 10px;
+
+}
+
+app-table {
+  flex-grow: 3;
+}
+
+ul{
+  flex-basis: 100%;
 }

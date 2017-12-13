@@ -5,10 +5,25 @@
   </h1>
 </div>
 
-<header>
-  <h2>Таблицы:</h2> <mat-icon id="edit_gear" svgIcon="edit-icon"></mat-icon>
-</header>
+<div class="tables-container">
 
-<app-table [tableName]="tableName" [isEditObserver]="isEditSubject.asObservable()"></app-table>
+  <div class="tables">
+      <div id="table_header"><h2 >Таблицы:</h2></div>
+
+      <div id="gearCl">
+        <mat-icon id="edit_gear" (click)="toggleEditingMode()" svgIcon="edit-icon"></mat-icon>
+      </div>
+    <ul>
+      <li *ngFor="let table of tables">
+        <a href="#">{{table.name}}</a>
+      </li>
+    </ul>
+  </div>
+
+
+  <app-table [tableName]="tableName" [isEditObserver]="isEditSubject.asObservable()"></app-table>
+</div>
+
+
 
 

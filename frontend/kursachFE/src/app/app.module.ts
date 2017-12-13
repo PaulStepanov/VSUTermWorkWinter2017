@@ -4,7 +4,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './tables/app.tables';
 import {Table} from "./table/table";
-import {MatIconRegistry, MatIconModule, MatTableModule} from "@angular/material";
+import {MatIconRegistry, MatIconModule, MatTableModule, MatGridListModule} from "@angular/material";
 import {HttpClientModule} from "@angular/common/http";
 
 
@@ -18,7 +18,8 @@ import {HttpClientModule} from "@angular/common/http";
     BrowserAnimationsModule,
     MatIconModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

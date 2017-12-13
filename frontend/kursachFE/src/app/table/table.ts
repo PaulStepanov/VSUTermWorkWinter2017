@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from "@angular/core";
 import {MatTableDataSource} from '@angular/material';
 import {Observable} from  'rxjs';
 import {addEditFieldToDataSource} from "./addEditFieldToDataSource";
+import {el} from "@angular/platform-browser/testing/src/browser_util";
 
 @Component({
   selector: 'app-table',
@@ -24,17 +25,23 @@ export class Table implements OnInit{
     {id:4, name: "n4"}]
 
   private userColumns = ['id', 'name'] //столбцы полученные с базы данных
-  private appColumns = ['edit']
 
-  private displayedColumns = this.userColumns.concat(this.appColumns)//using http and complicated function
+  private displayedColumns:Array<string> = this.userColumns.concat("edit")//using http and complicated function
 
   private dataSource:MatTableDataSource<any> = addEditFieldToDataSource(this.element_data)
+
+
 
   constructor(){
 
   }
 
+  getEditDisplayStype(){
+    return this.isEdit?"flex":"none"
+  }
+
   ngOnInit(): void {
+
     this.isEditObserver.subscribe(val=>{
       this.isEdit = val
     })
