@@ -1,0 +1,8 @@
+header{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+header #edit_gear {
+  padding-top: 20px;
+}
