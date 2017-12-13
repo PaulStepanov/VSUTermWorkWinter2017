@@ -1,9 +1,17 @@
-<mat-table  [dataSource]="dataSource">
+<h1>{{tableName}}</h1>
 
-  <!-- Id Column -->
-  <ng-container matColumnDef="id">
-    <mat-header-cell *matHeaderCellDef> id </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+<mat-table  [dataSource]="dataSource">
+  <!--make forEach columns adding-->
+  <div *ngFor="let columnName of userColumns">
+    <ng-container matColumnDef={{columnName}}>
+      <mat-header-cell *matHeaderCellDef> {{columnName}} </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element[columnName]}} </mat-cell>
+    </ng-container>
+  </div>
+
+  <ng-container matColumnDef="edit">
+    <mat-header-cell *matHeaderCellDef> edit </mat-header-cell>
+    <mat-cell *matCellDef="let element"> EditIconHere </mat-cell>
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

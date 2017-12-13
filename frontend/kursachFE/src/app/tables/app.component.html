@@ -9,6 +9,6 @@
   <h2>Таблицы:</h2> <mat-icon id="edit_gear" svgIcon="edit-icon"></mat-icon>
 </header>
 
-<app-table></app-table>
+<app-table [tableName]="tableName" [isEditObserver]="isEditSubject.asObservable()"></app-table>
 
 
