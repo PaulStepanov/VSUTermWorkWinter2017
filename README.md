@@ -8,8 +8,8 @@ PUT api/entity_definition - изменяет таблицу
 DELETE api/entity_definition - удаляет таблицу
 
 ## entity_value //строка Таблицы
-GET api/entity_value/{id} - возвращает строку по id
-GET api/entity_value/{entity_id} - возвращает все строки Таблицы(entity_definition) по entity_id
+GET api/entity_value/id/{id} - возвращает строку по id
+GET api/entity_value/entity_id/{entity_id} - возвращает все строки Таблицы(entity_definition) по entity_id
 POST api/entity_value/ - добавляет значение строки Таблицы
 PUT api/entity_value/ - изменяет значение строки Таблицы
 DELETE api/entity_value/ - удаляет значение строки Таблицы

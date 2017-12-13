@@ -1,13 +1,16 @@
-package vsu.by.awesomeProject.entities;
+package vsu.by.awesomeProject.controllers.JSONObjects;
+
+import javax.validation.constraints.Min;
 
 /**
  * Created by Андрей on 12.12.2017.
  */
-public class EntityEntity {
+public class EntityDefinitionRequest {
+    @Min(0)
     private Integer id;
     private String name;
 
-    public EntityEntity() {
+    public EntityDefinitionRequest() {
     }
 
     public Integer getId() {

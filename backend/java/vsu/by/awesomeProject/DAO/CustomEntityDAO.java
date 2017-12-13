@@ -16,8 +16,4 @@ public class CustomEntityDAO {
     @Autowired
     private EntityManager entityManager;
 
-    public List<EntityDefinition> getAllEntities(){
-        Query query = entityManager.createQuery("SELECT e FROM entity_definition e");
-        return (List<EntityDefinition>)query.getResultList();
-    }
 }

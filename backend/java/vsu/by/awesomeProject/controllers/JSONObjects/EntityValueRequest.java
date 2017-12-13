@@ -3,14 +3,14 @@ package vsu.by.awesomeProject.controllers.JSONObjects;
 import javax.validation.constraints.Min;
 
 /**
- * Created by Андрей on 12.12.2017.
+ * Created by Андрей on 13.12.2017.
  */
-public class ChangeEntityNameRequest {
+public class EntityValueRequest {
     @Min(0)
     private Integer id;
-    private String name;
+    private Integer entityId;
 
-    public ChangeEntityNameRequest() {
+    public EntityValueRequest() {
     }
 
     public Integer getId() {
@@ -21,11 +21,11 @@ public class ChangeEntityNameRequest {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public Integer getEntityId() {
+        return entityId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setEntityId(Integer entityId) {
+        this.entityId = entityId;
     }
 }
