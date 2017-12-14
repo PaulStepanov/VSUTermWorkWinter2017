@@ -12,11 +12,9 @@ import vsu.by.awesomeProject.servicies.PropertyDefinitionService;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * Created by Андрей on 13.12.2017.
- */
+
 @RestController
-@RequestMapping("/property_definition")
+@RequestMapping("/api/property_definition")
 public class PropertyDefinitionController {
     @Autowired
     private PropertyDefinitionService propertyDefinitionService;

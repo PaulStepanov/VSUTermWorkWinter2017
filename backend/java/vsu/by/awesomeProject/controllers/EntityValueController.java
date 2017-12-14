@@ -15,11 +15,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-/**
- * Created by Андрей on 13.12.2017.
- */
+
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/entity_value")
+@RequestMapping("/api/entity_value")
 public class EntityValueController {
     @Autowired
     private EntityDefinitionService entityDefinitionService;

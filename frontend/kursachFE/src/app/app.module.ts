@@ -15,6 +15,7 @@ import {FormsModule} from "@angular/forms";
 import {SaveTableNameDialog} from "./tables/addTableNameDialog/saveTableNameDialog";
 import {EditTablePropertValueDialog} from "./table/editTablePropertyValueDialog/editTablePropertyValueDialog";
 import {EditTablePropertyDefinitionDialog} from "./propertyTable/editTablePropertyDefinitionDialog/editTablePropertyDefinitionDialog";
+import {HttpModule} from "@angular/http";
 
 
 @NgModule({
@@ -41,8 +42,7 @@ import {EditTablePropertyDefinitionDialog} from "./propertyTable/editTableProper
     FormsModule,
     MatFormFieldModule,
     MatOptionModule,
-    MatSelectModule,
-    HttpClientModule
+    MatSelectModule
   ],
   providers: [MatDialog, HttpClientModule],
   entryComponents:[EditTableNameDialog, SaveTableNameDialog, EditTablePropertValueDialog, EditTablePropertyDefinitionDialog],

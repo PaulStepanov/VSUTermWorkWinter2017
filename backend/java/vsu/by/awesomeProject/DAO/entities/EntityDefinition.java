@@ -7,9 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- * Created by Андрей on 12.12.2017.
- */
+
 @javax.persistence.Entity(name = "entity_definition")
 @Table(name = "entity_definition")
 public class EntityDefinition {

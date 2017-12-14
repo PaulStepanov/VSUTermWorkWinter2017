@@ -1,32 +1,33 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatDialog, MatIconRegistry} from "@angular/material";
 import {DomSanitizer} from '@angular/platform-browser';
 import {Subject} from  'rxjs';
 import {TableClass} from "./classes/TableClass";
 import {EditTableNameDialog} from "./editTableNamedialog/editTableNameDialog";
 import {SaveTableNameDialog} from "./addTableNameDialog/saveTableNameDialog";
-import {HttpClient} from "@angular/common/http";
+import {ajax} from 'rxjs/observable/dom/ajax';
+import {serverURL} from "../constants/serverURL";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'app';
+export class AppComponent implements OnInit{
   isEditingMode:boolean = false;
-  isEditSubject:Subject<boolean> = new Subject();
-  tableName:string = "aaa";//actual using table name using http
+  updateSubject:Subject<boolean> = new Subject();
+  tableName:string = "no table";//actual using table name using http
+  tableId:number = 0;
 
-  tables:Array<TableClass> = [new TableClass("aaa"),new TableClass("bbb")];//get via http
+  tables:Array<TableClass> = [new TableClass("no table")];//get via http
 
 
   public toggleEditingMode(){
     this.isEditingMode = !this.isEditingMode
-    this.isEditSubject.next(this.isEditingMode)
+
   }
 
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, public dialog: MatDialog, private http: HttpClient){
+  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, public dialog: MatDialog){
    iconRegistry
       .addSvgIcon(
       'edit-icon',
@@ -62,6 +63,37 @@ export class AppComponent {
 
   finishEditing(){
     this.isEditingMode = false;
+  }
+
+  aClick(name:string, id:number){
+    this.tableName = name;
+    this.tableId = id;
+    this.updateSubject.next(true)
+  }
+
+
+  ngOnInit(): void {
+    this.tables = []
+
+    ajax({
+      url:serverURL+"entity_definition",
+      method: 'get'
+    }).subscribe(resp=>{
+
+      if (resp.status == 200) {
+        this.tables = []
+        let tables = resp.response as Array<any>;
+
+        tables.forEach(table=>{
+          let tableClass = new TableClass(table.name, table.id);
+
+          this.tables.push(tableClass)
+        })
+        console.log(this.tables);
+      } else {
+        console.log("error getting");
+      }
+    })
   }
 
 }

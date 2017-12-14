@@ -8,11 +8,10 @@ import vsu.by.awesomeProject.servicies.EntityDefinitionService;
 
 import java.util.List;
 
-/**
- * Created by Андрей on 12.12.2017.
- */
+
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/entity_definition")
+@RequestMapping("/api/entity_definition")
 public class EntityDefinitionController {
 
     @Autowired

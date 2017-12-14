@@ -2,9 +2,6 @@ package vsu.by.awesomeProject.DAO.entities;
 
 import javax.persistence.*;
 
-/**
- * Created by Андрей on 12.12.2017.
- */
 @Entity(name = "property_value")
 @Table(name = "property_value")
 public class PropertyValue {

@@ -15,10 +15,11 @@ export class PropertyTable implements OnInit{
   private tableName:string;
 
 
-  private element_data = [ //using http
+  private element_data = [
     {name:"x", type: 1},
-    {name:"y", type: 2},
-    {name:"n", type: 3}]
+        {name:"y", type: 2},
+        {name:"n", type: 3}//using http
+   ]
 
 
   private displayedColumns:Array<string> = ['name', 'type', 'edit']//using http and complicated function

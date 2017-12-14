@@ -15,7 +15,7 @@
       </div>
     <ul>
       <li *ngFor="let table of tables">
-        <a (click)="setTable(table.name)" href="#">{{table.name}}</a>
+        <a (click)="aClick(table.name, table.id)" href="#">{{table.name}}</a>
         <mat-icon  *ngIf = "isEditingMode" id="edit_pencil" svgIcon="edit-pencil" (click)="openEditDialog(table.name)"></mat-icon>
       </li>
       <button *ngIf = "isEditingMode" (click)="openSaveDoalog()">Add</button>
@@ -24,7 +24,7 @@
     <button id="endEdBut" (click)="finishEditing()" *ngIf = "isEditingMode">Закончит редактирование</button>
   </div>
 
-  <app-table *ngIf="!isEditingMode" [tableName]="tableName"></app-table>
+  <app-table *ngIf="!isEditingMode" [tableName]="tableName" [tableId]="tableId" [editObserver]="updateSubject.asObservable()"></app-table>
   <app-edit-table *ngIf="isEditingMode" [tableName]="tableName"></app-edit-table>
 </div>
 

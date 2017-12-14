@@ -4,9 +4,7 @@ import vsu.by.awesomeProject.controllers.JSONObjects.EntityValueRequest;
 
 import javax.persistence.*;
 
-/**
- * Created by Андрей on 12.12.2017.
- */
+
 @Entity(name = "entity_value")
 @Table(name = "entity_value")
 public class EntityValue {

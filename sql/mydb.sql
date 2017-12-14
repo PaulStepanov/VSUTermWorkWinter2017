@@ -30,7 +30,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `mydb`.`entity_value`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`entity_value` (
-  `id` INT(11) NOT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `entity_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_entity_value_entity_definition_idx` (`entity_id` ASC),
@@ -44,22 +44,13 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`hibernate_sequence`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`hibernate_sequence` (
-  `next_val` BIGINT(20) NULL DEFAULT NULL)
-ENGINE = MyISAM
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
 -- Table `mydb`.`property_definition`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`property_definition` (
   `id` INT(11) NOT NULL,
-  `name` VARCHAR(45) NULL DEFAULT NULL,
-  `type` INT(11) NULL DEFAULT NULL,
-  `entity_id` INT NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `type` INT(11) NOT NULL,
+  `entity_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_property_definition_entity_definition1_idx` (`entity_id` ASC),
   CONSTRAINT `fk_property_definition_entity_definition1`
@@ -75,21 +66,21 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `mydb`.`property_value`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`property_value` (
-  `id` INT(11) NOT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `value` VARCHAR(45) NULL DEFAULT NULL,
   `property_id` INT(11) NOT NULL,
   `entity_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_property_value_property_definition1_idx` (`property_id` ASC),
   INDEX `fk_property_value_entity_value1_idx` (`entity_id` ASC),
-  CONSTRAINT `fk_property_value_property_definition1`
-    FOREIGN KEY (`property_id`)
-    REFERENCES `mydb`.`property_definition` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_property_value_entity_value1`
     FOREIGN KEY (`entity_id`)
     REFERENCES `mydb`.`entity_value` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_property_value_property_definition1`
+    FOREIGN KEY (`property_id`)
+    REFERENCES `mydb`.`property_definition` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB

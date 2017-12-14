@@ -15,11 +15,10 @@ import javax.websocket.server.PathParam;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * Created by Андрей on 14.12.2017.
- */
+
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/property_value")
+@RequestMapping("/api/property_value")
 public class PropertyValueController {
     @Autowired
     private PropertyValueService propertyValueService;

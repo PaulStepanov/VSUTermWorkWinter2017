@@ -1,3 +1,10 @@
+* как запустить:  
+1. через консоль зайти в /frontend/kursachFE и исполнить npm i (нужен NodeJs 8.0.0+)  
+2. исполнить ng build  
+3. в папке /backend/запустить spring-boot-app через Intelij
+
+API
+
 # kursach
 ## entity_definition Controller //Таблица
 GET api/entity_definition - возвращает все Таблицы

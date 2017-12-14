@@ -8,9 +8,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.List;
 
-/**
- * Created by Андрей on 12.12.2017.
- */
 @Repository
 public class CustomEntityDAO {
     @Autowired
