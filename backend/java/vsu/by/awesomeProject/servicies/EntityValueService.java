@@ -30,7 +30,7 @@ public class EntityValueService {
     public List<EntityValue> getEntityValues(Integer entityDefId){
         EntityDefinition entityDefinition = entityDefinitionRepository.findOne(entityDefId);
 
-        return (List<EntityValue>) entityValueRepository.findAllByEntityDefinition(entityDefinition);
+        return entityValueRepository.findAllByEntityDefinition(entityDefinition);
     }
 
     public void addEntityValue(EntityValue entityValue){

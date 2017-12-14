@@ -55,7 +55,6 @@ public class PropertyDefinitionController {
 
     @DeleteMapping("/id/{id}")
     public void deletePropertyDefinition(@PathVariable(name = "id") Integer id){
-        propertyDefinitionService.deletePropertyDefinition(id);
     }
 
     private PropertyDefinitionResponse propertyDefinitionResponseBuilder(PropertyDefinition propertyDefinition){
