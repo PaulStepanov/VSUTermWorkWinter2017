@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Запись  в таблице "{{tableName}}" </h1>
+<div mat-dialog-content>
+  <mat-input-container *ngFor="let field of fields">
+    <input matInput  [(ngModel)]="elementDataObjChanged[field]" placeholder="{{field}}">
+  </mat-input-container>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onSaveClick()" >Сохранить</button>
+  <button mat-button (click)="onDeleteClick()">Удалить</button>
+</div>

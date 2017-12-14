@@ -1,8 +1,7 @@
 import {Component, Input, OnInit} from "@angular/core";
-import {MatTableDataSource} from '@angular/material';
-import {Observable} from  'rxjs';
+import {MatDialog, MatTableDataSource} from '@angular/material';
 import {addEditFieldToDataSource} from "./addEditFieldToDataSource";
-import {el} from "@angular/platform-browser/testing/src/browser_util";
+import {EditTablePropertValueDialog} from "./editTablePropertyValueDialog/editTablePropertyValueDialog";
 
 @Component({
   selector: 'app-table',
@@ -10,13 +9,9 @@ import {el} from "@angular/platform-browser/testing/src/browser_util";
   styleUrls: ['./table.css']
 })
 export class Table implements OnInit{
-  private isEdit:boolean = false;
-
   @Input()
   private tableName:string;
 
-  @Input()
-  private isEditObserver:Observable<boolean>;
 
   private element_data = [ //using http
     {id:2, name: "n1"},
@@ -32,18 +27,23 @@ export class Table implements OnInit{
 
 
 
-  constructor(){
+  constructor(public dialog: MatDialog){
 
   }
 
-  getEditDisplayStype(){
-    return this.isEdit?"flex":"none"
+  openEditDialog(tableName:string,element ): void {
+    let dialogRef = this.dialog.open(EditTablePropertValueDialog, {
+      width: '400px',
+      data: { tableName: tableName,  elementDataObj:element, fields:this.userColumns}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The editTableNamedialog was closed');
+    });
   }
 
   ngOnInit(): void {
 
-    this.isEditObserver.subscribe(val=>{
-      this.isEdit = val
-    })
+
   }
 }

@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Редактирование таблицы "{{data.tableName}}"</h1>
+<div mat-dialog-content>
+  <p>имя таблицы:</p>
+  <mat-input-container>
+    <input matInput  [(ngModel)]="tableName" placeholder="Имя таблицы">
+  </mat-input-container>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onSaveClick()" >Сохранить</button>
+  <button mat-button (click)="onDeleClick()">Удалить</button>
+</div>

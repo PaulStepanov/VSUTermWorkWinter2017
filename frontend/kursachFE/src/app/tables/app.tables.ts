@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import {MatIconRegistry} from "@angular/material";
+import {MatDialog, MatIconRegistry} from "@angular/material";
 import {DomSanitizer} from '@angular/platform-browser';
 import {Subject} from  'rxjs';
 import {TableClass} from "./classes/TableClass";
+import {EditTableNameDialog} from "./editTableNamedialog/editTableNameDialog";
+import {SaveTableNameDialog} from "./addTableNameDialog/saveTableNameDialog";
 
 @Component({
   selector: 'app-root',
@@ -23,14 +25,42 @@ export class AppComponent {
     this.isEditSubject.next(this.isEditingMode)
   }
 
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer){
-    //Todo separate it to separate file, haha i'm kidding, life is fast-flowing
-    iconRegistry
+  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, public dialog: MatDialog){
+   iconRegistry
       .addSvgIcon(
       'edit-icon',
         sanitizer.bypassSecurityTrustResourceUrl('assets/img/edit-icon.svg'))
       .addSvgIcon('edit-pencil',
         sanitizer.bypassSecurityTrustResourceUrl('assets/img/edit-pencil.svg'))
+  }
+
+  openEditDialog(tableName:string): void {
+    let dialogRef = this.dialog.open(EditTableNameDialog, {
+      width: '400px',
+      data: { tableName: tableName }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The editTableNamedialog was closed');
+    });
+  }
+
+  openSaveDoalog(){
+    let dialogRef = this.dialog.open(SaveTableNameDialog, {
+      width: '400px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The saveTableNameDialog was closed');
+    });
+  }
+
+  setTable(name:string){
+    this.tableName = name;
+  }
+
+  finishEditing(){
+    this.isEditingMode = false;
   }
 
 }

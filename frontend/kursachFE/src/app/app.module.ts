@@ -1,17 +1,31 @@
-import {BrowserModule, DomSanitizer} from '@angular/platform-browser';
+import {BrowserModule} from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './tables/app.tables';
 import {Table} from "./table/table";
-import {MatIconRegistry, MatIconModule, MatTableModule, MatGridListModule} from "@angular/material";
+import {
+  MatIconModule, MatTableModule, MatGridListModule, MatDialog,
+  MatDialogModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatOptionModule, MatSelectModule
+} from "@angular/material";
 import {HttpClientModule} from "@angular/common/http";
+import {PropertyTable} from "./propertyTable/editTable";
+import {EditTableNameDialog} from "./tables/editTableNamedialog/editTableNameDialog";
+import {FormsModule} from "@angular/forms";
+import {SaveTableNameDialog} from "./tables/addTableNameDialog/saveTableNameDialog";
+import {EditTablePropertValueDialog} from "./table/editTablePropertyValueDialog/editTablePropertyValueDialog";
+import {EditTablePropertyDefinitionDialog} from "./propertyTable/editTablePropertyDefinitionDialog/editTablePropertyDefinitionDialog";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    Table
+    Table,
+    PropertyTable,
+    EditTableNameDialog,
+    SaveTableNameDialog,
+    EditTablePropertValueDialog,
+    EditTablePropertyDefinitionDialog
   ],
   imports: [
     BrowserModule,
@@ -19,9 +33,18 @@ import {HttpClientModule} from "@angular/common/http";
     MatIconModule,
     HttpClientModule,
     MatTableModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatOptionModule,
+    MatSelectModule
   ],
-  providers: [],
+  providers: [MatDialog],
+  entryComponents:[EditTableNameDialog, SaveTableNameDialog, EditTablePropertValueDialog, EditTablePropertyDefinitionDialog],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

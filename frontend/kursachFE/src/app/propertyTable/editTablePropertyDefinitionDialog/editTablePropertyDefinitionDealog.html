@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Поле в таблице "{{tableName}}" </h1>
+<div mat-dialog-content>
+    <mat-form-field>
+      <mat-select placeholder="тип" [(value)] = "tablePropDefType">
+        <mat-option *ngFor="let field of propDefFields" [value]="field.value">
+          {{ field.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  <mat-input-container>
+    <input matInput [(ngModel)]="tablePropDefName" placeholder="Имя">
+  </mat-input-container>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onSaveClick()">Сохранить</button>
+  <button mat-button (click)="onDeleteClick()">Удалить</button>
+</div>
