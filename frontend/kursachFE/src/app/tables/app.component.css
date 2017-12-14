@@ -1,0 +1,39 @@
+.tables-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-basis: 100%;
+}
+
+.tables {
+  flex-grow: 1;
+
+}
+#table_header{
+  flex-basis: 70%;
+}
+#gearCl {
+  flex-basis: 10%;
+}
+
+#endEdBut{
+  flex-basis: 100%;
+  margin-top: 50px;
+}
+
+#edit_gear {
+  padding: 23px 0 0 10px;
+
+}
+
+app-table {
+  flex-grow: 3;
+}
+
+app-edit-table {
+  flex-grow: 3;
+}
+
+ul{
+  flex-basis: 100%;
+}

@@ -1,0 +1,25 @@
+<h1>Поля таблицы "{{tableName}}"</h1>
+
+<mat-table [dataSource]="dataSource">
+  <!--make forEach columns adding-->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef>название</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="type">
+    <mat-header-cell *matHeaderCellDef>Тип</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{mapTypeToString(element.type)}}</mat-cell>
+  </ng-container>
+
+    <ng-container id="edit"  matColumnDef="edit">
+      <mat-header-cell id="edit-header-cell" *matHeaderCellDef></mat-header-cell>
+      <mat-cell id="edit-cell" *matCellDef="let element">
+        <mat-icon  class="edit_pencil" svgIcon="edit-pencil" (click)="openEditDialog(tableName,element)"></mat-icon>
+      </mat-cell>
+    </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+<!--<button>Add</button>-->

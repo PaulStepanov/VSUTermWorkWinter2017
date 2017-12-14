@@ -1,0 +1,33 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Редактор таблиц
+  </h1>
+</div>
+
+<div class="tables-container">
+
+  <div class="tables">
+      <div id="table_header"><h2 >Таблицы:</h2></div>
+
+      <div id="gearCl">
+        <mat-icon *ngIf="!isEditingMode" id="edit_gear" (click)="toggleEditingMode()" svgIcon="edit-icon"></mat-icon>
+      </div>
+    <ul>
+      <li *ngFor="let table of tables">
+        <a (click)="setTable(table.name)" href="#">{{table.name}}</a>
+        <mat-icon  *ngIf = "isEditingMode" id="edit_pencil" svgIcon="edit-pencil" (click)="openEditDialog(table.name)"></mat-icon>
+      </li>
+      <button *ngIf = "isEditingMode" (click)="openSaveDoalog()">Add</button>
+    </ul>
+
+    <button id="endEdBut" (click)="finishEditing()" *ngIf = "isEditingMode">Закончит редактирование</button>
+  </div>
+
+  <app-table *ngIf="!isEditingMode" [tableName]="tableName"></app-table>
+  <app-edit-table *ngIf="isEditingMode" [tableName]="tableName"></app-edit-table>
+</div>
+
+
+
+
