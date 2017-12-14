@@ -3,6 +3,7 @@ import {MatDialog, MatTableDataSource} from '@angular/material';
 import {EditTablePropertyDefinitionDialog} from "./editTablePropertyDefinitionDialog/editTablePropertyDefinitionDialog";
 import deepcopy from "ts-deepcopy";
 import {propDefFields} from "../constants/propDefFields";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-edit-table',
@@ -26,8 +27,10 @@ export class PropertyTable implements OnInit{
   private propDefFields
 
 
-  constructor(public dialog: MatDialog){
+  constructor(public dialog: MatDialog, private http: HttpClient){
+    http.get("",{}).subscribe(response=>{
 
+    })
   }
 
   openEditDialog(tableName:string,element ): void {

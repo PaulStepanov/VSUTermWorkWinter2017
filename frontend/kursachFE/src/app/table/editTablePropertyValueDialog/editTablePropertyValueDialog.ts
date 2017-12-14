@@ -11,14 +11,16 @@ export class EditTablePropertValueDialog {
               @Inject(MAT_DIALOG_DATA) public data: any) {
   }
 
-  private tableName:string  = this.data.tableName;
+  private tableName: string = this.data.tableName;
 
-  private fields:Array<string> = this.data.fields
+  private fields: Array<string> = this.data.fields
   private elementDataObj = deepcopy(this.data.elementDataObj)
 
   private elementDataObjChanged = deepcopy(this.elementDataObj)//add copy
 
   onSaveClick(): void {
+    console.log(this.findDiff(this.elementDataObj, this.elementDataObjChanged));;
+
     this.dialogRef.close();
   }
 
@@ -31,7 +33,15 @@ export class EditTablePropertValueDialog {
    * @param elementObj
    * @param elementObjChanged
    */
-  private findDiff(elementObj,elementObjChanged){
-    
+  private findDiff(elementObj, elementObjChanged) {
+    let diffObject = {};
+
+    for (let field of this.fields) {
+      if (elementObj[field] !== elementObjChanged[field]) {
+        Object.defineProperty(diffObject, field,{enumerable:true, value: elementObjChanged[field]} )
+      }
+    }
+
+    return diffObject;
   }
 }

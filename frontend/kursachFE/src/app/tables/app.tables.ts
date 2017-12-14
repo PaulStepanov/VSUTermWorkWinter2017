@@ -5,6 +5,7 @@ import {Subject} from  'rxjs';
 import {TableClass} from "./classes/TableClass";
 import {EditTableNameDialog} from "./editTableNamedialog/editTableNameDialog";
 import {SaveTableNameDialog} from "./addTableNameDialog/saveTableNameDialog";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-root',
@@ -25,7 +26,7 @@ export class AppComponent {
     this.isEditSubject.next(this.isEditingMode)
   }
 
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, public dialog: MatDialog){
+  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, public dialog: MatDialog, private http: HttpClient){
    iconRegistry
       .addSvgIcon(
       'edit-icon',

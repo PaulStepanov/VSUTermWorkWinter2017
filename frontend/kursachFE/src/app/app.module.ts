@@ -41,9 +41,10 @@ import {EditTablePropertyDefinitionDialog} from "./propertyTable/editTableProper
     FormsModule,
     MatFormFieldModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    HttpClientModule
   ],
-  providers: [MatDialog],
+  providers: [MatDialog, HttpClientModule],
   entryComponents:[EditTableNameDialog, SaveTableNameDialog, EditTablePropertValueDialog, EditTablePropertyDefinitionDialog],
   bootstrap: [AppComponent]
 })

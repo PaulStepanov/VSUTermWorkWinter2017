@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from "@angular/core";
 import {MatDialog, MatTableDataSource} from '@angular/material';
 import {addEditFieldToDataSource} from "./addEditFieldToDataSource";
 import {EditTablePropertValueDialog} from "./editTablePropertyValueDialog/editTablePropertyValueDialog";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-table',
@@ -27,7 +28,7 @@ export class Table implements OnInit{
 
 
 
-  constructor(public dialog: MatDialog){
+  constructor(public dialog: MatDialog, private http: HttpClient){
 
   }
 
